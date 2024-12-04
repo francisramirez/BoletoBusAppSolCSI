@@ -1,3 +1,8 @@
+using BoletoBusAppSol.Data.Context;
+using BoletoBusAppSol.Data.Interfaces;
+using BoletoBusAppSol.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 namespace BoletoBusAppSol.Web
 {
     public class Program
@@ -7,6 +12,16 @@ namespace BoletoBusAppSol.Web
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<BoletoContext>(options => 
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BoletoConnString"));
+              
+            });
+
+            
+            // el registro de las dependencias de los repositorios..
+            builder.Services.AddTransient<IBusRepository, BusRepository>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

@@ -35,6 +35,7 @@ namespace BoletoBusAppSol.Data.Repositories
             {
                 var buses = await _boletoContext.Buses
                                          .Where(cd => cd.Estatus == true)
+                                         .OrderByDescending(cd => cd.FechaModificacion)   
                                          .Select(cd => new BusModel()
                                          {
                                              IdBus = cd.Id,
@@ -43,7 +44,7 @@ namespace BoletoBusAppSol.Data.Repositories
                                              Disponible = cd.Disponible,
                                              FechaCreacion = cd.FechaCreacion,
                                              Nombre = cd.Nombre,
-                                             NumeroPlaca = cd.NumeroPlaca,
+                                             NumeroPlaca = cd.NumeroPlaca, 
                                          }).ToListAsync();
 
 
