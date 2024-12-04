@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BoletoBusAppSol.Api.Dtos.Configuration.Bus
 {
@@ -9,6 +10,7 @@ namespace BoletoBusAppSol.Api.Dtos.Configuration.Bus
 
         [Required(ErrorMessage = "El número de placa es requerido.")]
         [StringLength(50, ErrorMessage = "La longitud de la placa es inválida.")]
+        
         public string? NumeroPlaca { get; set; }
 
         [Required(ErrorMessage = "El nombre del bus es requerido")]

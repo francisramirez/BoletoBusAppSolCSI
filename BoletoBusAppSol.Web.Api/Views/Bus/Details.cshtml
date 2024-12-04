@@ -1,0 +1,58 @@
+﻿@model BoletoBusAppSol.Web.Api.Models.Configuration.BusGetByIdResultModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+@if (!Model.success)
+{
+    <span class="alert-danger">@Model.message</span>
+    return;
+}
+}
+else
+{
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            nombre:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.result.nombre)
+        </dd>
+        <dt class="col-sm-2">
+            placa:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.result.numeroPlaca)
+        </dd>
+        <dd class="col-sm-10">
+            capacidad piso 1:
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.result.capacidadPiso1)
+        </dd>
+        <dd class="col-sm-10">
+            capacidad piso 2:
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.result.capacidadPiso2)
+        </dd>
+        <dd class="col-sm-10">
+            Disponible:
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.result.disponible)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.result.idBus }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
